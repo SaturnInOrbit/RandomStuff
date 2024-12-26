@@ -1,7 +1,7 @@
 print("Pfft")
 print("This is kinda fun")
 print("I oughta do this stuff more")
-choice = int(input("Pick a number between 1 and 2: ")
+choice = int(input("Pick a number between 1 and 2: "))
 if choice == 1:
   print("Nothing, what did you expect? Money? Tough luck, kid")
   print("Better luck next time, come back to me when I've a job")
