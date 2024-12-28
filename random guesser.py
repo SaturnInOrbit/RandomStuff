@@ -19,12 +19,18 @@ os.system('cls')
 
 ran = (random.randint(1,100))
 while game:
-	ans = int(input("Guess the number: "))
-	if ans == ran:
+	ans = int(input("Guess the number (Enter '0' to see your past guesses): "))
+	if ans == 0:
+			os.system('cls')
+			print("Here's your list of guesses in this session!")
+			print(guesses)
+			continue
+	elif ans == ran:
 		print("")
 		print("Well I'll be, you got it!")
 		time.sleep(2)
 		print("")
+	
 		if tries <= 10:
 			print(f"And it only took you {tries} attempts! You're a god at this.")
 		elif tries <= 30:
@@ -55,6 +61,7 @@ while game:
 		print("")
 		print("WRONG, TRY AGAIN!")
 		guesses.append(ans)
+		guesses.sort()
 		tries += 1
 		print(ran)
 		continue
