@@ -58,8 +58,9 @@ while game:
 		
 		break
 	else:
+		os.system('cls')
+		print("WRONG, PLEASE ENTER A DIFFERENT NUMBER AND TRY AGAIN!")
 		print("")
-		print("WRONG, TRY AGAIN!")
 		guesses.append(ans)
 		guesses.sort()
 		tries += 1
