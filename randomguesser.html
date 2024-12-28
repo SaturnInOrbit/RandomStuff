@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        #game-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            margin: 10px auto;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #guess-list {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Guess the Number Game</h1>
+        <p>Enter a number between 1-100 and try to guess the randomly generated one!</p>
+        <input id="guess-input" type="number" placeholder="Enter your guess" />
+        <button id="guess-button">Submit</button>
+        <button id="show-guesses">Show Guesses</button>
+
+        <div id="output"></div>
+        <div id="guess-list" class="hidden">
+            <h3>Your Previous Guesses:</h3>
+            <ul id="guess-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let tries = 0;
+        let guesses = [];
+
+        const guessInput = document.getElementById("guess-input");
+        const guessButton = document.getElementById("guess-button");
+        const showGuessesButton = document.getElementById("show-guesses");
+        const output = document.getElementById("output");
+        const guessList = document.getElementById("guess-list");
+        const guessItems = document.getElementById("guess-items");
+
+        guessButton.addEventListener("click", () => {
+            const guess = parseInt(guessInput.value);
+            if (!guess || guess < 1 || guess > 100) {
+                output.textContent = "Please enter a valid number between 1 and 100.";
+                return;
+            }
+
+            tries++;
+
+            if (guess === randomNumber) {
+                let message = "Well I'll be, you got it!\n\n";
+                if (tries <= 10) {
+                    message += `And it only took you ${tries} attempts! You're a god at this.`;
+                } else if (tries <= 30) {
+                    message += `And it only took you ${tries} attempts! Not bad!`;
+                } else if (tries <= 60) {
+                    message += `And it only took you ${tries} attempts! Could be better but still good.`;
+                } else {
+                    message += `And it took you ${tries} attempts! But you stuck through!`;
+                }
+
+                output.textContent = message;
+                guessInput.disabled = true;
+                guessButton.disabled = true;
+            } else {
+                output.textContent = "WRONG, PLEASE ENTER A DIFFERENT NUMBER AND TRY AGAIN!";
+                guesses.push(guess);
+                guesses.sort((a, b) => a - b);
+            }
+
+            guessInput.value = "";
+        });
+
+        showGuessesButton.addEventListener("click", () => {
+            guessList.classList.remove("hidden");
+            guessItems.innerHTML = "";
+            guesses.forEach(guess => {
+                const li = document.createElement("li");
+                li.textContent = guess;
+                guessItems.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
