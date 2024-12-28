@@ -2,6 +2,8 @@ import random
 import time
 import os
 game = True
+tries = 0
+guesses = []
 
 os.system('cls')
 print("Welcome to the guess the number game!")
@@ -22,9 +24,37 @@ while game:
 		print("")
 		print("Well I'll be, you got it!")
 		time.sleep(2)
-		print("That's pretty much it, take care!")
+		print("")
+		if tries <= 10:
+			print(f"And it only took you {tries} attempts! You're a god at this.")
+		elif tries <= 30:
+			print(f"And it only took you {tries} attempts! Not bad!")
+		elif tries <= 60:
+			print(f"And it only took you {tries} attempts! Could be better but still good.")
+		elif tries <= 99:
+			print(f"And it took you {tries} attempts! Took awhile but you stuck through.")
+		elif tries == 100: 
+			print(f"It took you {tries} tries! You basically went through every number before guessing it.")
+		elif tries >= 101:
+			print(f"It took you {tries} attempts! How'd you manage to guess more than a hundred before getting it?")
+			time.sleep(3)
+			print("")
+			print("Wow.")
+			print("")
+			time.sleep(1)
+			print("Just wow.")
+		else:
+			print("Huh?")
+		time.sleep(2)
+		print("")
+		print("Anyways, that's pretty much it, take care!")
+		print("")
+		
 		break
 	else:
 		print("")
 		print("WRONG, TRY AGAIN!")
+		guesses.append(ans)
+		tries += 1
+		print(ran)
 		continue
