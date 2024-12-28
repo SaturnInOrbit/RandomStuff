@@ -63,5 +63,4 @@ while game:
 		guesses.append(ans)
 		guesses.sort()
 		tries += 1
-		print(ran)
 		continue
