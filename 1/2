@@ -1,1 +1,7 @@
 print("Holy hell")
+san = int(input("Enter any number: "))
+print(san)
+if san == 2:
+  print("Why")
+else:
+  print("Ok")
