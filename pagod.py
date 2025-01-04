@@ -13,4 +13,7 @@ print("")
 print("sigh..")
 time.sleep(1)
 os.system('cls')
+print("*Breathes in")
+print("")
+print("sigh...")
 
