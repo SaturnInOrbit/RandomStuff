@@ -19,4 +19,7 @@ print("sigh...")
 time.sleep(3)
 print("")
 print("I'm kinda tired")
+print("")
+time.sleep(2)
+print("I've been at it so I'll wake up when I feel 'fine")
 
