@@ -1,0 +1,16 @@
+sanlist = []
+print("Holy hell")
+san = int(input("Enter any number: "))
+print(san)
+if san == 2:
+  print("Why")
+else:
+  print("Ok")
+
+for x in range(1,10):
+  print(san)
+  san += 1
+  sanlist.append(san)
+  sanlist.sort
+print("That's it I suppose")
+print(sanlist)
