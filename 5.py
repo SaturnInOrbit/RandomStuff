@@ -11,4 +11,5 @@ while True:
     eh += 1
     if eh >= 99:
         break
-    
+    else:
+        continue
