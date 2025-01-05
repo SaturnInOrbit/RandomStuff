@@ -5,3 +5,5 @@ print("not like anyone's gonna go through this shi lmao")
 print("Code nalang me something")
 num = int(input("Enter a number: "))
 num2 = int(input("Enter a 2nd number: "))
+eh = num + num2
+print(eh)
