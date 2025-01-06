@@ -14,3 +14,4 @@ else:
         print(f"{number} is not divisible by either 5 or 9.")
 print("Just a note ha, what a specific way to sort things. Kung divisible siya sa 5 or 9.")
 print("Like????")
+print("ewan")
