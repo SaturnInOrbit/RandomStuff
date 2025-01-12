@@ -1,6 +1,6 @@
 # Input a number from the user
 number = int(input("Enter a number: "))
-
+# xd
 # Check divisibility using nested if statements
 if number % 5 == 0:
     if number % 9 == 0:
