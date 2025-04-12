@@ -11,7 +11,7 @@ window.geometry('300x300')
 label = tk.Label(window, text="Selected Item: ")
 label.pack(pady=10)
 
-combo_box = ttk.Combobox(window, values=['Option 1', 'Option 2', 'Option 3'])
+combo_box = ttk.Combobox(window, values=['I', 'Was', 'Here'])
 combo_box.pack(pady=5)
 
 combo_box.set("Option 1")
